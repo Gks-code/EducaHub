@@ -1,0 +1,589 @@
+faca as devidas alterações no meu css 
+
+
+        /* RESET E CONFIGURAÇÕES GERAIS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cor-fundo: #0f172a;
+            --cor-destaque: #1e293b;
+            --cor-acento: #5fb878;
+            --cor-clara: #f1f5f9;
+            --cor-texto-escuro: #94a3b8;
+            --cor-borda: #334155;
+            --cor-secundaria: #3b82f6;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--cor-fundo);
+            color: var(--cor-clara);
+            min-height: 100vh;
+            overflow-x: hidden;
+            transition: margin-left 0.3s ease;
+        }
+
+        /* NAVBAR LATERAL - FECHADA POR PADRÃO */
+        .navbar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            width: 70px; /* Fechada por padrão */
+            background: var(--cor-destaque);
+            border-right: 1px solid var(--cor-borda);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        /* Quando hover ou ativa */
+        .navbar:hover,
+        .navbar.expanded {
+            width: 250px;
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 61px;
+            padding: 0 15px 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--cor-borda);
+            white-space: nowrap;
+            min-height: 40px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, var(--cor-acento), var(--cor-secundaria));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            font-size: 2.0rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--cor-acento), var(--cor-secundaria));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.3s ease 0.1s;
+            white-space: nowrap;
+        }
+
+        .navbar:hover .logo-text,
+        .navbar.expanded .logo-text {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .navbar-nav {
+            list-style: none;
+            flex: 1;
+            padding: 0 10px;
+        }
+
+        .nav-item {
+            margin-bottom: 8px;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            color: var(--cor-texto-escuro);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .nav-link span {
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .navbar:hover .nav-link span,
+        .navbar.expanded .nav-link span {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .nav-link:hover {
+            background: rgba(95, 184, 120, 0.1);
+            color: var(--cor-clara);
+        }
+
+        .nav-link.active {
+            background: linear-gradient(45deg, rgba(95, 184, 120, 0.2), rgba(59, 130, 246, 0.2));
+            color: var(--cor-acento);
+            border-left: 3px solid var(--cor-acento);
+        }
+
+        .nav-link i {
+            font-size: 1.3rem;
+            width: 24px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        /* Tooltip para quando navbar está fechada */
+        .nav-link::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            left: calc(100% + 15px);
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--cor-destaque);
+            color: var(--cor-clara);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1001;
+            border: 1px solid var(--cor-borda);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            pointer-events: none;
+        }
+
+        .nav-link:hover::after {
+            opacity: 1;
+            visibility: visible;
+            left: calc(100% + 10px);
+        }
+
+        /* BOTÃO MENU MOBILE */
+        .mobile-menu-toggle {
+            display: none;
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            z-index: 1002;
+            background: var(--cor-acento);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border: none;
+        }
+
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            backdrop-filter: blur(3px);
+        }
+
+        /* CONTEÚDO PRINCIPAL */
+        .main-content {
+            margin-left: 70px; /* Ajustado para navbar fechada */
+            padding: 40px 60px;
+            min-height: 100vh;
+            transition: margin-left 0.3s ease;
+            background: var(--cor-fundo);
+        }
+
+        /* Quando navbar expandida */
+        .navbar:hover ~ .main-content,
+        body:has(.navbar.expanded) .main-content {
+            margin-left: 250px;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .home-hero {
+            max-width: 900px;
+            margin-bottom: 80px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .home-hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--cor-clara);
+            background: linear-gradient(45deg, var(--cor-acento), var(--cor-secundaria), #5fb878);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .home-hero p {
+            font-size: 1.2rem;
+            color: var(--cor-texto-escuro);
+            max-width: 700px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .primary-btn,
+        .secondary-btn {
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .primary-btn {
+            background: linear-gradient(45deg, var(--cor-acento), #4CAF50);
+            color: white;
+            box-shadow: 0 6px 20px rgba(95, 184, 120, 0.3);
+        }
+
+        .primary-btn:hover {
+            background: linear-gradient(45deg, #4CAF50, var(--cor-acento));
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(95, 184, 120, 0.4);
+        }
+
+        .secondary-btn {
+            border: 1px solid var(--cor-borda);
+            color: var(--cor-clara);
+            background: transparent;
+        }
+
+        .secondary-btn:hover {
+            background: rgba(30, 41, 59, 0.8);
+            border-color: var(--cor-acento);
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           FEATURES
+        ========================= */
+
+        .home-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 100px;
+        }
+
+        .feature-card {
+            background: var(--cor-destaque);
+            border: 1px solid var(--cor-borda);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(95, 184, 120, 0.05), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--cor-acento);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--cor-acento);
+            margin-bottom: 20px;
+            background: rgba(95, 184, 120, 0.1);
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--cor-clara);
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            color: var(--cor-texto-escuro);
+            line-height: 1.6;
+        }
+
+        /* =========================
+           CTA FINAL
+        ========================= */
+
+        .home-cta {
+            background: var(--cor-destaque);
+            border: 1px solid var(--cor-borda);
+            border-radius: 20px;
+            padding: 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .home-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(95, 184, 120, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .home-cta > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .home-cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+            color: var(--cor-clara);
+        }
+
+        .home-cta p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: var(--cor-texto-escuro);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .home-cta .primary-btn {
+            background: linear-gradient(45deg, var(--cor-acento), var(--cor-secundaria));
+            padding: 16px 32px;
+            font-size: 1.1rem;
+        }
+
+        /* =========================
+           ANIMAÇÕES
+        ========================= */
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
+        @media (max-width: 768px) {
+            /* Esconde navbar em mobile */
+            .navbar {
+                display: none;
+                width: 280px;
+                transform: translateX(-100%);
+            }
+            
+            /* Mostra botão menu mobile */
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            /* Navbar quando ativo em mobile */
+            .navbar.mobile-active {
+                display: flex;
+                transform: translateX(0);
+                animation: slideIn 0.3s ease;
+            }
+            
+            .navbar.mobile-active .logo-text,
+            .navbar.mobile-active .nav-link span {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            
+            /* Remove tooltips em mobile */
+            .nav-link::after {
+                display: none;
+            }
+            
+            /* Overlay quando menu está aberto */
+            .mobile-overlay.active {
+                display: block;
+            }
+            
+            /* Ajusta conteúdo principal para mobile */
+            .main-content {
+                margin-left: 0;
+                padding: 30px 24px;
+                max-width: 100%;
+                padding-top: 70px; /* Espaço para o botão menu */
+            }
+            
+            /* Header mobile */
+            .home-hero h1 {
+                font-size: 2.4rem;
+            }
+            
+            .home-hero p {
+                font-size: 1.1rem;
+            }
+            
+            /* Hero actions em coluna em mobile */
+            .hero-actions {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .primary-btn,
+            .secondary-btn {
+                width: 100%;
+                justify-content: center;
+                padding: 16px 24px;
+            }
+            
+            /* Features em coluna */
+            .home-features {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin-bottom: 60px;
+            }
+            
+            /* CTA mobile */
+            .home-cta {
+                padding: 40px 24px;
+            }
+            
+            .home-cta h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 20px 15px;
+                padding-top: 60px;
+            }
+            
+            .home-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .home-hero p {
+                font-size: 1rem;
+            }
+            
+            .feature-card {
+                padding: 24px;
+            }
+            
+            .feature-card i {
+                font-size: 2rem;
+                width: 60px;
+                height: 60px;
+            }
+            
+            .home-cta {
+                padding: 30px 20px;
+            }
+            
+            .home-cta h2 {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (min-width: 769px) {
+            /* Tooltip só aparece quando navbar fechada */
+            .navbar:not(:hover):not(.expanded) .nav-link:hover::after {
+                opacity: 1;
+                visibility: visible;
+                left: calc(100% + 10px);
+            }
+            
+            /* Remove transição de texto quando fechada para performance */
+            .navbar:not(:hover):not(.expanded) .logo-text,
+            .navbar:not(:hover):not(.expanded) .nav-link span {
+                transition: none;
+            }
+        }
+
+        /* ANIMAÇÃO PARA O MENU MOBILE */
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }       
+            

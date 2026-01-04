@@ -7,9 +7,9 @@ const courses = [
         category: "Redes",
         lessons: 24,
         duration: 18,
-        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+        image: "",
         badges: ["Bestseller"],
-        link: "#"
+        link: "https://t.me/c/2606208161/1796"
     },
     {
         id: 2,
@@ -69,7 +69,7 @@ const courses = [
     {
         id: 7,
         title: "HTML5 e CSS3 Completo",
-        author: "AcademiaTech",
+        author: "EducaHub",
         category: "Front-end",
         lessons: 35,
         duration: 28,
@@ -146,7 +146,7 @@ function renderCourses(coursesToRender) {
             <div class="course-content">
                 <h3 class="course-title">${course.title}</h3>
                 <div class="course-author">
-                    <i class="fas fa-user"></i>
+                    <i class=""></i>
                     <span>${course.author}</span>
                 </div>
                 <div class="course-details">
