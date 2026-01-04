@@ -414,7 +414,8 @@ body:has(.navbar.expanded) .main-content {
 .course-duration {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 10px;
+    padding: 5px 1px;
 }
 
 .course-lessons i,

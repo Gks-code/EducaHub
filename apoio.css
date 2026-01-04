@@ -51,7 +51,7 @@
   .navbar-logo {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 61px;
       padding: 0 15px 20px;
       margin-bottom: 20px;
       border-bottom: 1px solid var(--cor-borda);
@@ -72,7 +72,7 @@
   }
 
   .logo-text {
-      font-size: 1.4rem;
+      font-size: 2.0rem;
       font-weight: 700;
       background: linear-gradient(45deg, var(--cor-acento), var(--cor-secundaria));
       -webkit-background-clip: text;
