@@ -1,66 +1,76 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AcademiaTech | Cursos de Tecnologia</title>
+    <title>EducaHub | Cursos de Tecnologia</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
+    <!-- Botão do menu mobile -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
     <!-- Navbar Lateral -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="navbar-logo">
-            <div class="logo-icon">
-                <i class="fas fa-graduation-cap"></i>
+            <div class="">
+                <i class=""></i>
             </div>
-            <div class="logo-text">AcademiaTech</div>
+            <div class="logo-text">EducaHub</div>
         </div>
-        
+
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a href="index.html" class="nav-link">
+                <a href="index.html" class="nav-link" data-tooltip="Início">
                     <i class="bi bi-house-door-fill"></i>
                     <span>Início</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="cursos.html" class="nav-link active">
-                   <i class="bi bi-mortarboard-fill"></i>
+                <a href="cursos.html" class="nav-link active" data-tooltip="Cursos">
+                    <i class="bi bi-mortarboard-fill"></i>
                     <span>Cursos</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="https://wa.me/5545988127886?text=Olá%2C%20gostaria%20de%20mais%20informações." class="nav-link">
-                 <i class="bi bi-person-fill"></i>
+                <a href="https://wa.me/5545988127886?text=Olá%2C%20gostaria%20de%20mais%20informações." class="nav-link"
+                    target="_blank" data-tooltip="Suporte">
+                    <i class="bi bi-person-fill"></i>
                     <span>Suporte</span>
                 </a>
             </li>
-            
-             <li class="nav-item">
-                <a href="#" class="nav-link">
-                   <i class="bi bi-unlock2-fill"></i>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link" data-tooltip="Desbloquear Cursos">
+                    <i class="bi bi-unlock2-fill"></i>
                     <span>Desbloquear Cursos</span>
                 </a>
             </li>
-             
+
             <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="https://discord.gg/example" class="nav-link" target="_blank" data-tooltip="Discord">
                     <i class="bi bi-discord"></i>
                     <span>Discord</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a href="apoio.html" class="nav-link">
+                <a href="apoio.html" class="nav-link" data-tooltip="Apoiar o Criador">
                     <i class="fas fa-donate"></i>
                     <span>Apoiar o Criador</span>
                 </a>
             </li>
-            
+
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="https://discord.gg/GRWrj2w4vR" class="nav-link" data-tooltip="Pedir Curso">
                     <i class="fas fa-comment-dots"></i>
                     <span>Pedir Curso</span>
                 </a>
@@ -75,94 +85,33 @@
                 <h1>Cursos recentemente adicionados</h1>
                 <p>Adicionamos cursos todos os finais de semana</p>
             </div>
-            
-            <div class="header-controls">
-                <!-- Sistema de busca com efeitos retro -->
-                <div class="search-container">
-                    <div class="grid"></div>
-                    <div id="poda">
-                        <div class="glow"></div>
-                        <div class="darkBorderBg"></div>
-                        <div class="darkBorderBg"></div>
-                        <div class="darkBorderBg"></div>
 
-                        <div class="white"></div>
-                        <div class="border"></div>
+            <!-- NOVO SISTEMA DE FILTROS SIMPLIFICADO -->
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Buscar curso, autor ou categoria">
 
-                        <div id="main">
-                            <input 
-                                class="input" 
-                                name="text" 
-                                type="text" 
-                                placeholder="Buscar cursos..." 
-                                id="searchInput" 
-                            />
-                            <div id="pink-mask"></div>
-                            
-                            <!-- Botão de filtro -->
-                            <div class="filterBorder"></div>
-                            <div id="filter-icon">
-                                <i class="fas fa-filter"></i>
-                            </div>
-                            
-                            <!-- Ícone de busca -->
-                            <div id="search-icon">
-                                <i class="fas fa-search"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Dropdown de categorias (aparece quando clicar no filtro) -->
-                <div class="category-dropdown" id="categoryDropdown">
-                    <div class="dropdown-header">
-                        <h4>Filtrar por Categoria</h4>
-                        <button class="close-dropdown" id="closeDropdown">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                    <div class="dropdown-content">
-                        <div class="category-option">
-                            <input type="checkbox" id="cat-redes" value="Redes">
-                            <label for="cat-redes">Redes</label>
-                        </div>
-                        <div class="category-option">
-                            <input type="checkbox" id="cat-frontend" value="Front-end">
-                            <label for="cat-frontend">Front-end</label>
-                        </div>
-                        <div class="category-option">
-                            <input type="checkbox" id="cat-js" value="JavaScript">
-                            <label for="cat-js">JavaScript</label>
-                        </div>
-                        <div class="category-option">
-                            <input type="checkbox" id="cat-fullstack" value="Full Stack">
-                            <label for="cat-fullstack">Full Stack</label>
-                        </div>
-                        <div class="category-option">
-                            <input type="checkbox" id="cat-datascience" value="Data Science">
-                            <label for="cat-datascience">Data Science</label>
-                        </div>
-                    </div>
-                    <div class="dropdown-footer">
-                        <button class="clear-filters-btn" id="clearFilters">
-                            <i class="fas fa-times"></i>
-                            Limpar Filtros
-                        </button>
-                        <button class="apply-filters-btn" id="applyFilters">
-                            <i class="fas fa-check"></i>
-                            Aplicar
-                        </button>
-                    </div>
-                </div>
+                <select id="categoryFilter">
+                    <option value="">Todas as categorias</option>
+                    <option value="Html">Html</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="Full Stack">Full Stack</option>
+                </select>
+
+                <select id="sortFilter">
+                    <option value="">Ordenar por</option>
+                    <option value="title">Nome (A–Z)</option>
+                    <option value="lessons">Mais aulas</option>
+                    <option value="duration">Maior duração</option>
+                </select>
             </div>
         </div>
 
         <!-- Grid de cursos -->
         <div class="courses-grid" id="coursesGrid">
-            <!-- Os cards serão gerados dinamicamente aqui -->
+            <!-- Os cards serão gerados dinamicamente pelo JavaScript -->
         </div>
     </main>
-    
-    <script src="cursos.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

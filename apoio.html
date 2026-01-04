@@ -3,412 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AcademiaTech | Cursos de Tecnologia</title>
+    <title>Apoiar o Criador | EducaHub</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* CORREÇÃO DO OVERFLOW E CENTRALIZAÇÃO */
-        body {
-            overflow-x: hidden;
-        }
-        
-        .main-content {
-            max-width: 1200px; /* Largura máxima centralizada */
-            margin: 0 auto; /* Centraliza horizontalmente */
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        
-        /* REMOVER O GRID QUE ESTÁ CAUSANDO PROBLEMAS */
-        .grid {
-            display: none;
-        }
-        
-        /* HEADER CENTRALIZADO E COMPACTO */
-        .page-header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            margin-bottom: 30px;
-            gap: 20px;
-        }
-
-        .header-title {
-            width: 100%;
-            margin-bottom: 15px;
-        }
-
-        .header-title h1 {
-            font-size: 1.8rem; /* Menor */
-            margin-bottom: 8px;
-            color: var(--cor-clara);
-            line-height: 1.2;
-        }
-
-        .header-title p {
-            color: var(--cor-texto-escuro);
-            font-size: 0.95rem; /* Menor */
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* CONTROLES COMPACTOS E CENTRALIZADOS */
-        .header-controls {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            width: 100%;
-            max-width: 500px; /* Largura máxima menor */
-            margin: 0 auto;
-        }
-
-        .search-container {
-            width: 100%;
-            max-width: 300px; /* Menor */
-        }
-
-        /* DROPDOWN CENTRALIZADO */
-        .category-dropdown {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            margin-top: 10px;
-            z-index: 1000;
-        }
-
-        /* GRID DE CURSOS CENTRALIZADO E COMPACTO */
-        .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Cards menores */
-            gap: 20px; /* Espaçamento menor */
-            justify-items: center; /* Centraliza os cards */
-            margin-top: 20px;
-            padding-left: 68px;
-        }
-
-        /* CARDS MENORES */
-        .course-card {
-            background: var(--cor-destaque);
-            border-radius: 12px; /* Bordas mais suaves */
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra mais suave */
-            transition: all 0.2s ease;
-            border: 1px solid var(--cor-borda);
-            width: 100%;
-            max-width: 280px; /* Largura fixa menor */
-            display: flex;
-            flex-direction: column;
-        }
-
-        .course-card:hover {
-            transform: translateY(-5px); /* Efeito menor */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            border-color: var(--cor-acento);
-        }
-
-        /* IMAGEM MENOR */
-        .course-image {
-            height: 150px; /* Menor */
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .course-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .course-card:hover .course-image img {
-            transform: scale(1.05);
-        }
-
-        /* BADGES MENORES */
-        .course-badges {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            display: flex;
-            gap: 6px;
-            z-index: 2;
-        }
-
-        .badge {
-            padding: 4px 8px; /* Menor */
-            border-radius: 12px; /* Mais arredondado */
-            font-size: 9px; /* Menor */
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .badge.premium {
-            background: linear-gradient(45deg, #FFD700, #FFA500);
-            color: #000;
-        }
-
-        .badge.bestseller {
-            background: linear-gradient(45deg, #FF4757, #FF6B81);
-            color: white;
-        }
-
-        /* CONTEÚDO COMPACTO */
-        .course-content {
-            padding: 15px; /* Padding menor */
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .course-title {
-            font-size: 1rem; /* Menor */
-            font-weight: 600;
-            color: var(--cor-clara);
-            margin-bottom: 8px;
-            line-height: 1.3;
-            min-height: 2.8em;
-        }
-
-        .course-author {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            margin-bottom: 12px;
-            color: var(--cor-texto-escuro);
-            font-size: 0.85rem; /* Menor */
-        }
-
-        .course-author i {
-            color: var(--cor-acento);
-            font-size: 0.9rem;
-        }
-
-        .course-details {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            font-size: 0.8rem; /* Menor */
-            color: var(--cor-texto-escuro);
-            padding: 10px 0;
-            border-top: 1px solid var(--cor-borda);
-            border-bottom: 1px solid var(--cor-borda);
-        }
-
-        .course-lessons, .course-duration {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .course-lessons i, .course-duration i {
-            color: var(--cor-acento);
-            font-size: 0.9rem;
-        }
-
-        /* BOTÃO MENOR */
-        .course-btn {
-            display: block;
-            text-align: center;
-            padding: 10px; /* Menor */
-            background: linear-gradient(45deg, var(--cor-acento), #4CAF50);
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 8px;
-            transition: all 0.2s ease;
-            margin-top: auto;
-            text-transform: uppercase;
-            font-size: 0.8rem; /* Menor */
-            letter-spacing: 0.3px;
-        }
-
-        .course-btn:hover {
-            background: linear-gradient(45deg, #4CAF50, var(--cor-acento));
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(95, 184, 120, 0.3);
-        }
-
-        /* MENSAGEM SEM CURSOS */
-        .no-courses {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 50px 20px; /* Menor */
-            color: var(--cor-texto-escuro);
-        }
-
-        .no-courses i {
-            font-size: 40px; /* Menor */
-            margin-bottom: 15px;
-            color: var(--cor-secundaria);
-            opacity: 0.5;
-        }
-
-        .no-courses h3 {
-            font-size: 1.4rem; /* Menor */
-            margin-bottom: 10px;
-            color: var(--cor-clara);
-        }
-
-        .no-courses p {
-            font-size: 0.95rem; /* Menor */
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        /* RESPONSIVIDADE PARA DISPOSITIVOS PEQUENOS */
-        @media (max-width: 768px) {
-            .main-content {
-                padding: 15px;
-            }
-            
-            .header-title h1 {
-                font-size: 1.6rem;
-            }
-            
-            .header-title p {
-                font-size: 0.9rem;
-            }
-            
-            .courses-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                gap: 15px;
-            }
-            
-            .course-card {
-                max-width: 250px;
-            }
-            
-            .course-image {
-                height: 140px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header-title h1 {
-                font-size: 1.4rem;
-            }
-            
-            .courses-grid {
-                grid-template-columns: 1fr;
-                max-width: 280px;
-                margin: 0 auto;
-            }
-            
-            .course-card {
-                max-width: 100%;
-            }
-            
-            .search-container {
-                max-width: 280px;
-            }
-            
-            #poda {
-                max-width: 100%;
-            }
-            
-            .input {
-                width: 100%;
-                max-width: 260px;
-                font-size: 14px;
-                height: 45px;
-            }
-            
-            #filter-icon {
-                height: 35px;
-                width: 33px;
-                top: 5px;
-                right: 5px;
-            }
-            
-            #filter-icon i {
-                font-size: 16px;
-            }
-            
-            #search-icon {
-                left: 12px;
-            }
-            
-            #search-icon i {
-                font-size: 16px;
-            }
-        }
-
-        /* AJUSTES PARA TELAS GRANDES */
-        @media (min-width: 1400px) {
-            .main-content {
-                max-width: 1300px;
-            }
-            
-            .courses-grid {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-                gap: 25px;
-            }
-            
-            .course-card {
-                max-width: 300px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="apoio.css">
 </head>
 <body>
+    <!-- Botão do menu mobile -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
     <!-- Navbar Lateral -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="navbar-logo">
-            <div class="logo-icon">
-                <i class="fas fa-graduation-cap"></i>
+            <div class="">
+                <i class=""></i>
             </div>
-            <div class="logo-text">AcademiaTech</div>
+            <div class="logo-text">EducaHub</div>
         </div>
         
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a href="index.html" class="nav-link">
+                <a href="index.html" class="nav-link" data-tooltip="Início">
                     <i class="bi bi-house-door-fill"></i>
                     <span>Início</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="cursos.html" class="nav-link active">
+                <a href="cursos.html" class="nav-link" data-tooltip="Cursos">
                    <i class="bi bi-mortarboard-fill"></i>
                     <span>Cursos</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="https://wa.me/5545988127886?text=Olá%2C%20gostaria%20de%20mais%20informações." class="nav-link" target="_blank">
+                <a href="https://wa.me/5545988127886?text=Olá%2C%20gostaria%20de%20mais%20informações." class="nav-link" target="_blank" data-tooltip="Suporte">
                  <i class="bi bi-person-fill"></i>
                     <span>Suporte</span>
                 </a>
             </li>
             
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="#" class="nav-link" data-tooltip="Desbloquear Cursos">
                    <i class="bi bi-unlock2-fill"></i>
                     <span>Desbloquear Cursos</span>
                 </a>
             </li>
              
             <li class="nav-item">
-                <a href="https://discord.gg/example" class="nav-link" target="_blank">
+                <a href="https://discord.gg/GRWrj2w4vR" class="nav-link" target="_blank" data-tooltip="Discord">
                     <i class="bi bi-discord"></i>
                     <span>Discord</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a href="apoio.html" class="nav-link">
+                <a href="apoiar.html" class="nav-link active" data-tooltip="Apoiar o Criador">
                     <i class="fas fa-donate"></i>
                     <span>Apoiar o Criador</span>
                 </a>
             </li>
             
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="https://discord.gg/GRWrj2w4vR" class="nav-link" data-tooltip="Pedir Curso">
                     <i class="fas fa-comment-dots"></i>
                     <span>Pedir Curso</span>
                 </a>
@@ -418,381 +76,163 @@
 
     <!-- Conteúdo Principal -->
     <main class="main-content">
-        <div class="page-header">
-            <div class="header-title">
-                <h1>Cursos recentemente adicionados</h1>
-                <p>Adicionamos cursos todos os finais de semana</p>
+        <div class="support-container">
+            <div class="support-header">
+                <h1>Apoiar o Criador</h1>
+                <p>Seu apoio ajuda a manter a EducaHub ativa e a produzir mais conteúdo de qualidade</p>
             </div>
-            
-            <div class="header-controls">
-                <!-- Sistema de busca com efeitos retro -->
-                <div class="search-container">
-                    <div id="poda">
-                        <div class="glow"></div>
-                        <div class="darkBorderBg"></div>
-                        <div class="darkBorderBg"></div>
-                        <div class="darkBorderBg"></div>
 
-                        <div class="white"></div>
-                        <div class="border"></div>
+            <div class="support-grid">
+                <!-- Cartão PIX -->
+                <div class="support-card">
+                    <div class="card-icon">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h3>Faça uma doação via PIX</h3>
+                    <p>Se esse conteúdo te ajudou de alguma forma e você quiser apoiar meu trabalho, qualquer valor é bem-vindo. Grande parte do que está aqui envolve tempo, pesquisa e organização de materiais, para facilitar o acesso e poupar o seu tempo. O apoio é totalmente opcional e você decide o valor.</p>
+                    
+                    <div class="qr-container">
+                        <!-- QR Code gerado com a chave PIX -->
+                        <img src="PHOTO-2025-12-29-16-07-57.jpg" 
+                             alt="QR Code PIX para doação" id="qrCodeImage">
+                        <div class="qr-label">Escaneie com seu app bancário</div>
+                    </div>
 
-                        <div id="main">
-                            <input 
-                                class="input" 
-                                name="text" 
-                                type="text" 
-                                placeholder="Buscar cursos..." 
-                                id="searchInput" 
-                            />
-                            <div id="pink-mask"></div>
-                            
-                            <!-- Botão de filtro -->
-                            <div class="filterBorder"></div>
-                            <div id="filter-icon">
-                                <i class="fas fa-filter"></i>
-                            </div>
-                            
-                            <!-- Ícone de busca -->
-                            <div id="search-icon">
-                                <i class="fas fa-search"></i>
-                            </div>
+                    <div class="pix-key">
+                        <p style="color: var(--cor-texto-escuro); margin-bottom: 10px;">Ou use a chave PIX:</p>
+                        <div class="pix-key-code" id="pixKey">
+                            8933ea95-2156-4602-b811-840273113aa5 <!-- SUBSTITUA POR SUA CHAVE PIX REAL -->
                         </div>
-                    </div>
-                </div>
-                
-                <!-- Dropdown de categorias -->
-                <div class="category-dropdown" id="categoryDropdown">
-                    <div class="dropdown-header">
-                        <h4>Filtrar por Categoria</h4>
-                        <button class="close-dropdown" id="closeDropdown">
-                            <i class="fas fa-times"></i>
+                        <button class="copy-btn" onclick="copyPixKey()" id="copyBtn">
+                            <i class="fas fa-copy"></i>
+                            Copiar Chave PIX
                         </button>
                     </div>
-                    <div class="dropdown-content">
-                        <div class="category-option">
-                            <input type="checkbox" id="cat-redes" value="Redes">
-                            <label for="cat-redes">Redes</label>
-                        </div>
-                        <div class="category-option">
-                            <input type="checkbox" id="cat-frontend" value="Front-end">
-                            <label for="cat-frontend">Front-end</label>
-                        </div>
-                        <div class="category-option">
-                            <input type="checkbox" id="cat-js" value="JavaScript">
-                            <label for="cat-js">JavaScript</label>
-                        </div>
-                        <div class="category-option">
-                            <input type="checkbox" id="cat-fullstack" value="Full Stack">
-                            <label for="cat-fullstack">Full Stack</label>
-                        </div>
-                        <div class="category-option">
-                            <input type="checkbox" id="cat-datascience" value="Data Science">
-                            <label for="cat-datascience">Data Science</label>
-                        </div>
-                    </div>
-                    <div class="dropdown-footer">
-                        <button class="clear-filters-btn" id="clearFilters">
-                            <i class="fas fa-times"></i>
-                            Limpar Filtros
-                        </button>
-                        <button class="apply-filters-btn" id="applyFilters">
-                            <i class="fas fa-check"></i>
-                            Aplicar
-                        </button>
+                    
+                    <div class="thank-you">
+                        <p>
+                            <i class="fas fa-heart" style="color: #FF4757;"></i>
+                            Agradeço imensamente pelo seu apoio!
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Grid de cursos -->
-        <div class="courses-grid" id="coursesGrid">
-            <!-- Os cards serão gerados dinamicamente pelo JavaScript -->
         </div>
     </main>
-    
-    <!-- JavaScript para os cursos -->
+
     <script>
-        // Dados dos cursos
-        const courses = [
-            {
-                id: 1,
-                title: "Fundamentos de Redes de Computadores",
-                author: "Prof. Ricardo Mendes",
-                category: "Redes",
-                lessons: 24,
-                duration: 18,
-                image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                badges: ["Bestseller"],
-                link: "#"
-            },
-            {
-                id: 2,
-                title: "Desenvolvimento Web Moderno",
-                author: "Ana Silva",
-                category: "Front-end",
-                lessons: 36,
-                duration: 28,
-                image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                badges: ["Premium"],
-                link: "#"
-            },
-            {
-                id: 3,
-                title: "JavaScript Avançado",
-                author: "Carlos Oliveira",
-                category: "JavaScript",
-                lessons: 42,
-                duration: 35,
-                image: "https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                badges: ["Premium", "Bestseller"],
-                link: "#"
-            },
-            {
-                id: 4,
-                title: "Node.js e MongoDB",
-                author: "Maria Santos",
-                category: "Full Stack",
-                lessons: 30,
-                duration: 25,
-                image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                badges: ["Bestseller"],
-                link: "#"
-            },
-            {
-                id: 5,
-                title: "React do Zero ao Avançado",
-                author: "João Pereira",
-                category: "Front-end",
-                lessons: 48,
-                duration: 40,
-                image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                badges: ["Premium"],
-                link: "#"
-            },
-            {
-                id: 6,
-                title: "Python para Data Science",
-                author: "Laura Costa",
-                category: "Data Science",
-                lessons: 32,
-                duration: 26,
-                image: "https://images.unsplash.com/photo-1526379879527-8559ecfcaec3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                badges: [],
-                link: "#"
-            },
-            {
-                id: 7,
-                title: "DevOps: Docker e Kubernetes",
-                author: "Roberto Almeida",
-                category: "DevOps",
-                lessons: 38,
-                duration: 32,
-                image: "https://images.unsplash.com/photo-1605379399642-870262d3d051?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                badges: ["Premium"],
-                link: "#"
-            },
-            {
-                id: 8,
-                title: "UI/UX Design",
-                author: "Beatriz Lima",
-                category: "Design",
-                lessons: 28,
-                duration: 22,
-                image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                badges: ["Bestseller"],
-                link: "#"
-            }
-        ];
-
         // Elementos DOM
-        const coursesGrid = document.getElementById('coursesGrid');
-        const searchInput = document.getElementById('searchInput');
-        const filterIcon = document.getElementById('filter-icon');
-        const categoryDropdown = document.getElementById('categoryDropdown');
-        const closeDropdown = document.getElementById('closeDropdown');
-        const clearFiltersBtn = document.getElementById('clearFilters');
-        const applyFiltersBtn = document.getElementById('applyFilters');
-        const categoryCheckboxes = document.querySelectorAll('.category-option input');
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        const navbar = document.getElementById('navbar');
+        let navbarExpanded = false;
 
-        // Filtros ativos
-        let activeFilters = {
-            search: '',
-            categories: []
-        };
-
-        // Renderizar cursos
-        function renderCourses(coursesToRender) {
-            if (!coursesGrid) return;
+        // Menu mobile
+        function toggleMobileMenu() {
+            navbar.classList.toggle('mobile-active');
+            mobileOverlay.classList.toggle('active');
             
-            coursesGrid.innerHTML = '';
-
-            if (coursesToRender.length === 0) {
-                coursesGrid.innerHTML = `
-                    <div class="no-courses">
-                        <i class="fas fa-search"></i>
-                        <h3>Nenhum curso encontrado</h3>
-                        <p>Tente ajustar seus filtros de busca ou categoria</p>
-                    </div>
-                `;
-                return;
+            // Toggle ícone do botão
+            const icon = mobileMenuToggle.querySelector('i');
+            if (navbar.classList.contains('mobile-active')) {
+                icon.className = 'fas fa-times';
+                navbar.classList.add('expanded');
+            } else {
+                icon.className = 'fas fa-bars';
+                navbar.classList.remove('expanded');
             }
+        }
 
-            coursesToRender.forEach(course => {
-                const courseCard = document.createElement('div');
-                courseCard.className = 'course-card';
+        // Função para copiar a chave PIX
+        function copyPixKey() {
+            const pixKey = document.getElementById('pixKey').textContent;
+            const copyBtn = document.getElementById('copyBtn');
+            
+            navigator.clipboard.writeText(pixKey).then(() => {
+                // Feedback visual
+                copyBtn.innerHTML = '<i class="fas fa-check"></i> Chave Copiada!';
+                copyBtn.classList.add('copied');
+                
+                // Reverte após 2 segundos
+                setTimeout(() => {
+                    copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copiar Chave PIX';
+                    copyBtn.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('Erro ao copiar:', err);
+                alert('Erro ao copiar. Tente selecionar e copiar manualmente.');
+            });
+        }
 
-                let badgesHTML = '';
-                if (course.badges && course.badges.length > 0) {
-                    course.badges.forEach(badge => {
-                        const badgeClass = badge === "Premium" ? "premium" : "bestseller";
-                        badgesHTML += `<span class="badge ${badgeClass}">${badge}</span>`;
+        // Controle da navbar no desktop
+        function handleNavbarBehavior() {
+            if (window.innerWidth > 768) {
+                // Em desktop, fecha navbar após 3 segundos sem hover
+                let hoverTimeout;
+                
+                navbar.addEventListener('mouseenter', () => {
+                    clearTimeout(hoverTimeout);
+                    navbar.classList.add('expanded');
+                    navbarExpanded = true;
+                });
+                
+                navbar.addEventListener('mouseleave', () => {
+                    hoverTimeout = setTimeout(() => {
+                        navbar.classList.remove('expanded');
+                        navbarExpanded = false;
+                    }, 500); // Fecha após 0.5 segundos sem hover
+                });
+                
+                // Expande ao clicar para navegar
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (!navbarExpanded) {
+                            navbar.classList.add('expanded');
+                            navbarExpanded = true;
+                            setTimeout(() => {
+                                navbar.classList.remove('expanded');
+                                navbarExpanded = false;
+                            }, 2000);
+                        }
                     });
-                }
-
-                courseCard.innerHTML = `
-                    <div class="course-image">
-                        <img src="${course.image}" alt="${course.title}" loading="lazy">
-                        <div class="course-badges">
-                            ${badgesHTML}
-                        </div>
-                    </div>
-                    <div class="course-content">
-                        <h3 class="course-title">${course.title}</h3>
-                        <div class="course-author">
-                            <i class="fas fa-user"></i>
-                            <span>${course.author}</span>
-                        </div>
-                        <div class="course-details">
-                            <div class="course-lessons">
-                                <i class="fas fa-play-circle"></i>
-                                <span>${course.lessons} aulas</span>
-                            </div>
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>${course.duration}h</span>
-                            </div>
-                        </div>
-                        <a href="${course.link}" class="course-btn" target="_blank">
-                            Acessar Curso
-                        </a>
-                    </div>
-                `;
-
-                coursesGrid.appendChild(courseCard);
-            });
+                });
+            }
         }
 
-        // Filtrar cursos
-        function filterCourses() {
-            const searchTerm = activeFilters.search.toLowerCase().trim();
-            const selectedCategories = activeFilters.categories;
-
-            const filteredCourses = courses.filter(course => {
-                const matchesSearch = searchTerm === '' ||
-                    course.title.toLowerCase().includes(searchTerm) ||
-                    course.author.toLowerCase().includes(searchTerm) ||
-                    course.category.toLowerCase().includes(searchTerm);
-
-                const matchesCategory = selectedCategories.length === 0 ||
-                    selectedCategories.includes(course.category);
-
-                return matchesSearch && matchesCategory;
-            });
-
-            renderCourses(filteredCourses);
-        }
-
-        // Atualizar filtros de categoria
-        function updateCategoryFilters() {
-            activeFilters.categories = Array.from(categoryCheckboxes)
-                .filter(checkbox => checkbox.checked)
-                .map(checkbox => checkbox.value);
-            
-            filterCourses();
-        }
-
-        // Limpar todos os filtros
-        function clearAllFilters() {
-            searchInput.value = '';
-            activeFilters.search = '';
-            
-            categoryCheckboxes.forEach(checkbox => checkbox.checked = false);
-            activeFilters.categories = [];
-            
-            categoryDropdown.classList.remove('show');
-            filterCourses();
-        }
-
-        // Event Listeners
+        // Inicialização
         document.addEventListener('DOMContentLoaded', function() {
-            // Renderizar cursos inicialmente
-            renderCourses(courses);
-
-            // Busca em tempo real
-            if (searchInput) {
-                searchInput.addEventListener('input', (e) => {
-                    activeFilters.search = e.target.value;
-                    filterCourses();
-                });
+            // Menu mobile
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', toggleMobileMenu);
             }
 
-            // Abrir/fechar dropdown de filtros
-            if (filterIcon) {
-                filterIcon.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    categoryDropdown.classList.toggle('show');
-                });
+            if (mobileOverlay) {
+                mobileOverlay.addEventListener('click', toggleMobileMenu);
             }
 
-            if (closeDropdown) {
-                closeDropdown.addEventListener('click', () => {
-                    categoryDropdown.classList.remove('show');
-                });
-            }
-
-            // Fechar dropdown ao clicar fora
-            document.addEventListener('click', (e) => {
-                if (filterIcon && !filterIcon.contains(e.target) && 
-                    categoryDropdown && !categoryDropdown.contains(e.target)) {
-                    categoryDropdown.classList.remove('show');
-                }
-            });
-
-            // Checkboxes de categoria
-            if (categoryCheckboxes.length > 0) {
-                categoryCheckboxes.forEach(checkbox => {
-                    checkbox.addEventListener('change', updateCategoryFilters);
-                });
-            }
-
-            // Botões de filtro
-            if (applyFiltersBtn) {
-                applyFiltersBtn.addEventListener('click', () => {
-                    categoryDropdown.classList.remove('show');
-                    updateCategoryFilters();
-                });
-            }
-
-            if (clearFiltersBtn) {
-                clearFiltersBtn.addEventListener('click', clearAllFilters);
-            }
-
-            // Tecla ESC fecha dropdown
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && categoryDropdown.classList.contains('show')) {
-                    categoryDropdown.classList.remove('show');
-                }
-            });
-
-            // Focar no input ao clicar na área da busca
-            const podaElement = document.getElementById('poda');
-            if (podaElement) {
-                podaElement.addEventListener('click', (e) => {
-                    if (e.target !== searchInput) {
-                        searchInput.focus();
+            // Fechar menu ao clicar em um link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        toggleMobileMenu();
                     }
                 });
-            }
+            });
+
+            // Tecla ESC fecha menu
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    if (navbar.classList.contains('mobile-active')) {
+                        toggleMobileMenu();
+                    }
+                }
+            });
+
+            // Configura navbar desktop
+            handleNavbarBehavior();
+
+            // Redimensionamento da janela
+            window.addEventListener('resize', handleNavbarBehavior);
         });
     </script>
 </body>

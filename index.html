@@ -4,91 +4,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AcademiaTech | Cursos de Tecnologia</title>
+    <title>EducaHub</title>
+
+    <!-- Ícones -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-     <!-- Navbar Lateral -->
-    <nav class="navbar">
+    <!-- Botão do menu mobile -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <i class="fas fa-bars"></i> 
+    </button>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
         <div class="navbar-logo">
-            <div class="logo-icon">
-                <i class="fas fa-graduation-cap"></i>
+            <div class="">
+                <i class=""></i>
             </div>
-            <div class="logo-text">AcademiaTech</div>
+            <div class="logo-text">EducaHub</div>
         </div>
-        
+
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a href="index.html" class="nav-link active">
+                <a href="index.html" class="nav-link active" data-tooltip="Início">
                     <i class="bi bi-house-door-fill"></i>
                     <span>Início</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="cursos.html" class="nav-link">
-                   <i class="bi bi-mortarboard-fill"></i>
 
+            <li class="nav-item">
+                <a href="cursos.html" class="nav-link" data-tooltip="Cursos">
+                    <i class="bi bi-mortarboard-fill"></i>
                     <span>Cursos</span>
                 </a>
             </li>
+
             <li class="nav-item">
-                <a href="https://wa.me/5545988127886?text=Olá%2C%20gostaria%20de%20mais%20informações." class="nav-link">
+                <a href="https://wa.me/5545988127886" target="_blank" class="nav-link" data-tooltip="Suporte">
                     <i class="bi bi-person-fill"></i>
                     <span>Suporte</span>
                 </a>
             </li>
-            
-             <li class="nav-item">
-                <a href="#" class="nav-link">
-                   <i class="bi bi-unlock2-fill"></i>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link" data-tooltip="Desbloquear Cursos">
+                    <i class="bi bi-unlock2-fill"></i>
                     <span>Desbloquear Cursos</span>
                 </a>
             </li>
-             
+
             <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="https://discord.gg/GRWrj2w4vR" class="nav-link" data-tooltip="Discord">
                     <i class="bi bi-discord"></i>
                     <span>Discord</span>
                 </a>
             </li>
-          
-           <li class="nav-item">
-                <a href="apoio.html" class="nav-link">
+
+            <li class="nav-item">
+                <a href="apoio.html" class="nav-link" data-tooltip="Apoiar o Criador">
                     <i class="fas fa-donate"></i>
                     <span>Apoiar o Criador</span>
                 </a>
             </li>
-            
+
             <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="https://discord.gg/GRWrj2w4vR" class="nav-link" data-tooltip="Pedir Curso">
                     <i class="fas fa-comment-dots"></i>
                     <span>Pedir Curso</span>
                 </a>
             </li>
-        </div>
+        </ul>
     </nav>
 
-    <!-- Conteúdo Principal -->
+    <!-- CONTEÚDO PRINCIPAL -->
     <main class="main-content">
-        <div class="page-header">
-            <div class="header-title">
-                <h1>Cursos recem adicionados</h1>
-                <p>Adicionamos cursos todos Final de Semana</p>
+
+        <!-- HERO -->
+        <section class="home-hero">
+            <h1>Aprenda tecnologia de forma prática</h1>
+            <p>
+                A EducaHub reúne cursos organizados, atualizados e focados
+                em quem quer aprender de verdade — sem enrolação. Domine as habilidades
+                mais requisitadas do mercado com nossa metodologia hands-on.
+            </p>
+
+            <div class="hero-actions">
+                <a href="cursos.html" class="primary-btn">
+                    <i class="fas fa-rocket"></i>
+                    Explorar Cursos
+                </a>
+                <a href="https://discord.gg/GRWrj2w4vR" class="secondary-btn">
+                    <i class="bi bi-discord"></i>
+                    Entrar no Discord
+                </a>
+            </div>
+        </section>
+
+        <!-- DESTAQUES -->
+        <section class="home-features">
+            <div class="feature-card">
+                <i class="fas fa-layer-group"></i>
+                <h3>Cursos Organizados</h3>
+                <p>
+                    Conteúdo estruturado por área, nível e objetivo com roadmap claro.
+                    Nada jogado de qualquer jeito. Aprenda no seu ritmo, do básico ao avançado.
+                </p>
             </div>
 
+            <div class="feature-card">
+                <i class="fas fa-sync-alt"></i>
+                <h3>Atualizações Frequentes</h3>
+                <p>
+                    Novos cursos adicionados toda semana e conteúdo constantemente revisado
+                    para acompanhar as últimas tendências do mercado tecnológico.
+                </p>
+            </div>
 
+            <div class="feature-card">
+                <i class="fa-solid fa-people-group"></i>
+                <h3>Comunidade Ativa</h3>
+                <p>
+                    Tire dúvidas, compartilhe projetos e conecte-se com outros desenvolvedores
+                    em nossa comunidade exclusiva no Discord. Aprenda junto com outros apaixonados por tecnologia.
+                </p>
+            </div>
+        </section>
 
-        </div>
+        <!-- CTA FINAL -->
+        <section class="home-cta">
+            <h2>Pronto para transformar sua carreira?</h2>
+            <p>
+                Acesse nosso catálogo completo de cursos e encontre o caminho perfeito
+                para suas habilidades em tecnologia. Comece hoje sua jornada!
+            </p>
 
-        <!-- Grid de cursos será preenchido via JavaScript -->
-        <div class="courses-grid" id="coursesGrid">
-            <!-- Os cards serão gerados dinamicamente aqui -->
-        </div>
+            <a href="cursos.html" class="primary-btn">
+                <i class="fas fa-graduation-cap"></i>
+                Ver Todos os Cursos
+            </a>
+        </section>
+
     </main>
-    <script src="script.js"></script>
+
+    <!-- JavaScript -->
+    <script>
+        // Elementos DOM
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        const navbar = document.getElementById('navbar');
+
+        // Menu mobile
+        function toggleMobileMenu() {
+            navbar.classList.toggle('mobile-active');
+            mobileOverlay.classList.toggle('active');
+
+            // Toggle ícone do botão
+            const icon = mobileMenuToggle.querySelector('i');
+            if (navbar.classList.contains('mobile-active')) {
+                icon.className = 'fas fa-times';
+                navbar.classList.add('expanded');
+            } else {
+                icon.className = 'fas fa-bars';
+                navbar.classList.remove('expanded');
+            }
+        }
+
+        // Controle da navbar no desktop
+        function handleNavbarBehavior() {
+            if (window.innerWidth > 768) {
+                // Em desktop, fecha navbar após 3 segundos sem hover
+                let hoverTimeout;
+
+                navbar.addEventListener('mouseenter', () => {
+                    clearTimeout(hoverTimeout);
+                    navbar.classList.add('expanded');
+                });
+
+                navbar.addEventListener('mouseleave', () => {
+                    hoverTimeout = setTimeout(() => {
+                        navbar.classList.remove('expanded');
+                    }, 500); // Fecha após 0.5 segundos sem hover
+                });
+
+                // Expande ao clicar para navegar
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (!navbar.classList.contains('expanded')) {
+                            navbar.classList.add('expanded');
+                            setTimeout(() => {
+                                navbar.classList.remove('expanded');
+                            }, 2000);
+                        }
+                    });
+                });
+            }
+        }
+
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', function () {
+            // Menu mobile
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+            }
+
+            if (mobileOverlay) {
+                mobileOverlay.addEventListener('click', toggleMobileMenu);
+            }
+
+            // Fechar menu ao clicar em um link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        toggleMobileMenu();
+                    }
+                });
+            });
+
+            // Tecla ESC fecha menu
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && navbar.classList.contains('mobile-active')) {
+                    toggleMobileMenu();
+                }
+            });
+
+            // Animações de entrada
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                    }
+                });
+            }, observerOptions);
+
+            // Observar elementos para animação
+            document.querySelectorAll('.feature-card, .home-cta').forEach(el => {
+                el.style.opacity = '0';
+                observer.observe(el);
+            });
+
+            // Configura navbar desktop
+            handleNavbarBehavior();
+
+            // Redimensionamento da janela
+            window.addEventListener('resize', handleNavbarBehavior);
+        });
+    </script>
 </body>
 
 </html>
