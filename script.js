@@ -85,8 +85,8 @@ const courses = [
         "id": 10,
         "title": "Python para Análise de Dados",
         "category": "Data Science",
-        "lessons": 28,
-        "duration": 22,
+        "lessons": 20,
+        "duration": 3,
         "image": "https://img.shields.io/badge/Python-Data%20Analysis-3776AB",
         "link": "https://t.me/c/2606208161/21994"
     },
@@ -456,7 +456,7 @@ const courses = [
         "category": "E-commerce",
         "lessons": 28,
         "duration": 22,
-        "image": "https://img.shields.io/badge/E-commerce-Expert-FF6B35",
+        "image": "https://img.shields.io/badge/Elxpro-BR-blue?style=for-the-badge&logoColor=white",
         "link": "https://t.me/c/2606208161/17385"
     },
     {

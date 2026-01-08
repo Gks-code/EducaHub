@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APKs - EducaHub</title>
+
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="apk.css">
+</head>
+
+<body>
+    <!-- Botão do menu mobile -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <!-- NAVBAR - REMOVA O "active" DO LINK DE APKs -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-logo">
+            <div class="logo-icon">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="logo-text">EducaHub</div>
+        </div>
+
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link" data-tooltip="Início">
+                    <i class="bi bi-house-door-fill"></i>
+                    <span>Início</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="cursos.html" class="nav-link" data-tooltip="Cursos">
+                    <i class="bi bi-mortarboard-fill"></i>
+                    <span>Cursos</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <!-- REMOVA A CLASSE "active" AQUI -->
+                <a href="apks.html" class="nav-link" data-tooltip="APKs">
+                    <i class="fa-solid fa-download"></i>
+                    <span>APKs</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="https://wa.me/5545988127886" target="_blank" class="nav-link" data-tooltip="Suporte">
+                    <i class="bi bi-person-fill"></i>
+                    <span>Suporte</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link" data-tooltip="Desbloquear Cursos">
+                    <i class="bi bi-unlock2-fill"></i>
+                    <span>Desbloquear Cursos</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="https://discord.gg/GRWrj2w4vR" class="nav-link" data-tooltip="Discord">
+                    <i class="bi bi-discord"></i>
+                    <span>Discord</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="apoio.html" class="nav-link" data-tooltip="Apoiar o Criador">
+                    <i class="fas fa-donate"></i>
+                    <span>Apoiar o Criador</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="pedir-curso.html" class="nav-link" data-tooltip="Pedir Curso">
+                    <i class="fas fa-comment-dots"></i>
+                    <span>Pedir Curso</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-content">
+        <!-- HERO SECTION -->
+        <section class="apks-hero">
+            <h1>APKs</h1>
+            <p>
+                Coleção de aplicativos úteis, mods e ferramentas para Android.
+                Todos os APKs são testados e otimizados para melhor performance.
+            </p>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">APKs Disponíveis</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Testados</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Suporte</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- AVISO DE SEGURANÇA -->
+        <div class="warning-banner">
+            <i class="fas fa-shield-alt"></i>
+            <div class="warning-content">
+                <h4>Importante: Segurança em Primeiro Lugar</h4>
+                <p>
+                    Todos os APKs são verificados quanto a malware antes de serem disponibilizados.
+                    Recomendamos que você tenha um antivírus instalado e faça backup dos seus dados importantes.
+                </p>
+            </div>
+        </div>
+
+        <!-- GRID DE APKs - SEM FILTROS -->
+        <div class="apks-grid">
+            <!-- APK 1 -->
+            <div class="apk-card">
+                <div class="apk-badge">Mod</div>
+                <div class="apk-image">
+                    <img src="https://cdn-icons-png.flaticon.com/512/732/732228.png" alt="YouTube Mod">
+                </div>
+                <div class="apk-content">
+                    <div class="apk-header">
+                        <h3 class="apk-title">YouTube Mod</h3>
+                        <p class="apk-description">YouTube sem anúncios, background play e download de vídeos. Todas as
+                            funções premium desbloqueadas.</p>
+                    </div>
+                    <div class="apk-meta">
+                        <span class="apk-tag">V17.49.37</span>
+                        <span class="apk-tag">145 MB</span>
+                        <span class="apk-tag">Android 8+</span>
+                    </div>
+                    <div class="apk-actions">
+                        <a href="#" class="apk-btn apk-btn-primary">
+                            <i class="fas fa-download"></i>
+                            Baixar APK
+                        </a>
+                        <a href="#" class="apk-btn apk-btn-secondary">
+                            <i class="fas fa-info-circle"></i>
+                            Detalhes
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- APK 2 -->
+            <div class="apk-card">
+                <div class="apk-badge">Mod</div>
+                <div class="apk-image">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968517.png" alt="Spotify">
+                </div>
+                <div class="apk-content">
+                    <div class="apk-header">
+                        <h3 class="apk-title">Spotify Mod</h3>
+                        <p class="apk-description">Música ilimitada sem anúncios, modo offline, qualidade máxima e
+                            recursos premium ativados.</p>
+                    </div>
+                    <div class="apk-meta">
+                        <span class="apk-tag">V8.9.42.624</span>
+                        <span class="apk-tag">95 MB</span>
+                        <span class="apk-tag">Android 7+</span>
+                    </div>
+                    <div class="apk-actions">
+                        <a href="#" class="apk-btn apk-btn-primary">
+                            <i class="fas fa-download"></i>
+                            Baixar APK
+                        </a>
+                        <a href="#" class="apk-btn apk-btn-secondary">
+                            <i class="fas fa-info-circle"></i>
+                            Detalhes
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- APK 3 -->
+            <div class="apk-card">
+                <div class="apk-badge">Pro</div>
+                <div class="apk-image">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1042/1042339.png" alt="Photo Editor">
+                </div>
+                <div class="apk-content">
+                    <div class="apk-header">
+                        <h3 class="apk-title">Photo Editor Pro</h3>
+                        <p class="apk-description">Editor de fotos profissional com filtros premium, ferramentas
+                            avançadas e sem marca d'água.</p>
+                    </div>
+                    <div class="apk-meta">
+                        <span class="apk-tag">V5.8.2</span>
+                        <span class="apk-tag">78 MB</span>
+                        <span class="apk-tag">Android 9+</span>
+                    </div>
+                    <div class="apk-actions">
+                        <a href="#" class="apk-btn apk-btn-primary">
+                            <i class="fas fa-download"></i>
+                            Baixar APK
+                        </a>
+                        <a href="#" class="apk-btn apk-btn-secondary">
+                            <i class="fas fa-info-circle"></i>
+                            Detalhes
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- APK 4 -->
+            <div class="apk-card">
+                <div class="apk-badge">Mod</div>
+                <div class="apk-image">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+                </div>
+                <div class="apk-content">
+                    <div class="apk-header">
+                        <h3 class="apk-title">Instagram Mod</h3>
+                        <p class="apk-description">Instagram com recursos extras: download de stories, visualização
+                            anônima, temas personalizados.</p>
+                    </div>
+                    <div class="apk-meta">
+                        <span class="apk-tag">V309.0.0.0</span>
+                        <span class="apk-tag">112 MB</span>
+                        <span class="apk-tag">Android 8+</span>
+                    </div>
+                    <div class="apk-actions">
+                        <a href="#" class="apk-btn apk-btn-primary">
+                            <i class="fas fa-download"></i>
+                            Baixar APK
+                        </a>
+                        <a href="#" class="apk-btn apk-btn-secondary">
+                            <i class="fas fa-info-circle"></i>
+                            Detalhes
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- APK 5 -->
+            <div class="apk-card">
+                <div class="apk-badge">Mod</div>
+                <div class="apk-image">
+                    <img src="https://cdn-icons-png.flaticon.com/512/808/808439.png" alt="Game Mod">
+                </div>
+                <div class="apk-content">
+                    <div class="apk-header">
+                        <h3 class="apk-title">Minecraft Mod</h3>
+                        <p class="apk-description">Versão completa do Minecraft com skins, texturas e mods premium
+                            desbloqueados.</p>
+                    </div>
+                    <div class="apk-meta">
+                        <span class="apk-tag">V1.20.15.01</span>
+                        <span class="apk-tag">250 MB</span>
+                        <span class="apk-tag">Android 10+</span>
+                    </div>
+                    <div class="apk-actions">
+                        <a href="#" class="apk-btn apk-btn-primary">
+                            <i class="fas fa-download"></i>
+                            Baixar APK
+                        </a>
+                        <a href="#" class="apk-btn apk-btn-secondary">
+                            <i class="fas fa-info-circle"></i>
+                            Detalhes
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- APK 6 -->
+            <div class="apk-card">
+                <div class="apk-badge">Mod</div>
+                <div class="apk-image">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2504/2504922.png" alt="Netflix">
+                </div>
+                <div class="apk-content">
+                    <div class="apk-header">
+                        <h3 class="apk-title">Netflix Mod</h3>
+                        <p class="apk-description">Acesso a catálogo completo, download ilimitado e qualidade 4K sem
+                            necessidade de assinatura.</p>
+                    </div>
+                    <div class="apk-meta">
+                        <span class="apk-tag">V8.94.0</span>
+                        <span class="apk-tag">68 MB</span>
+                        <span class="apk-tag">Android 9+</span>
+                    </div>
+                    <div class="apk-actions">
+                        <a href="#" class="apk-btn apk-btn-primary">
+                            <i class="fas fa-download"></i>
+                            Baixar APK
+                        </a>
+                        <a href="#" class="apk-btn apk-btn-secondary">
+                            <i class="fas fa-info-circle"></i>
+                            Detalhes
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+<script src="apk.js"></script>
+</body>
+
+</html>
